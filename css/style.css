@@ -63,11 +63,14 @@ body{
     }
 
     nav{
+        position:sticky;
+        top: 0;
+    }
+
+    .nav-bar{
         width: 100vw;
         height: 30px;
         background-color: black;
-        position:sticky;
-        top: 0;
         display: block;
         padding: 5px;
         box-sizing: border-box;
@@ -77,6 +80,7 @@ body{
     .hamburger{
         margin: auto 0;
         float: left;
+        cursor: pointer;
     }
 
     .hamburger span{
@@ -85,20 +89,28 @@ body{
         background-color: white;
         display: block;
         margin-bottom: 5px;
+        position: relative;
+        transition: transform .3s ease-in-out, opacity .2s ease-in-out, top .3s ease-in-out;
     }
 
-    nav > span{
+    .trigger{
+        margin-left: .4rem;
+        display: none;
+    }
+
+    .nav-bar > label > span{
         color: whitesmoke;
         margin-left: .4rem;
+        cursor: pointer;
     }
 
-    nav > a{
+    .nav-bar > a{
         float: right;
         display: block;
         height: 160%;
     }
 
-    nav > a > img{
+    .nav-bar > a > img{
         height:100%;
     }
 
@@ -106,27 +118,58 @@ body{
         width: 100vw;
         box-sizing:border-box;
         margin-top: 1rem;
-        padding: .8rem 1rem;
         list-style: none;
         display: flex;
-        flex-flow: column wrap;
-        justify-content: center;
-        align-items: center;
-        gap: .8rem 1rem;
-        background-color: #ce2a1b;
+        flex-flow: column nowrap;
+        background-color: #000000;
+        position:absolute;
+        left: -100vw;
+        transition: left 0.3s ease-out, background-color .85s;
     }
 
-    .mbox > li > a{
+    .mbox > a{
+        border-bottom: .8px solid black;
+        text-align: center;
+        flex-grow: 1;
+        padding: .4rem 0;
+        display: block;
         font-size: 1.1rem;
         color: whitesmoke;
         text-decoration: none;
     }
 
+    .mbox > a:hover{
+        background-color: rgb(100, 99, 99);
+    }
 
+    .mbox a:first-child{
+        padding-top: .6rem;
+    }
+
+    .mbox a:last-child{
+        padding-bottom: .6rem;
+    }
+
+    .trigger:checked ~ .mbox{
+        left: 0;
+        background-color: rgb(189, 50, 50);
 }
 
+    .trigger:checked ~ .hamburger span:first-child{
+        transform: rotate(45deg);
+        top: 8px;
+    }
 
+    .trigger:checked ~ .hamburger span:last-child{
+        transform: rotate(-45deg);
+        top: -8px;
+    }
 
+    .trigger:checked ~ .hamburger span:nth-child(2){
+        opacity: 0;
+    }
+
+}
 
 
 
