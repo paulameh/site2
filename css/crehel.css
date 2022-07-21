@@ -1,0 +1,111 @@
+.field0{
+    width: 90.25vw;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: rgb(173, 62, 47);
+    border-radius: 20px;
+}
+
+.box{
+    margin-bottom: 1.2rem;
+    width: 100%;
+}
+
+label{
+    display: block;
+    font-family: 'Raleway';
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+    margin-bottom: 1%;
+}
+
+.box > input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: .6rem .6rem;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#remember{
+    width: auto;
+    margin-right: .4rem;
+}
+
+.remember:checked ~ small{
+    color:aqua;
+}
+
+small{
+    font-family: 'Raleway';
+    font-weight: bold;
+    color:rgb(31, 31, 31);
+    transition: color .4s ease-in-out;
+}
+
+button{
+    background-color: lightskyblue;
+    box-sizing: border-box;
+    width: 120px;
+    padding: .6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: .4rem;
+}
+
+h2{
+    color: gold;
+    text-align: center;
+    font-family: 'Quicksand';
+}
+
+.field1{
+    width: 90.25vw;
+    margin: 2rem auto;
+    box-sizing: border-box;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-flow: column wrap;
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+textarea{
+    background-color: rgb(34, 34, 34);
+    border: 2px dashed white;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Raleway';
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.wcomp{
+    display: inline-block;
+    text-indent: 0;
+    text-align: left;
+    margin-left: .8rem;
+    font-weight: lighter;
+}
+
+hr{
+    background-color: white;
+    color: white;
+}
+
+.selector{
+    display: inline-block;
+    width: 15%;
+    margin: 0 0 .8rem 1.8rem ;
+}
+
+.form-select{
+    background-color: rgb(31, 31, 31);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: .6rem;
+    color: aliceblue;
+}
