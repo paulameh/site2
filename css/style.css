@@ -107,7 +107,7 @@ nav{
     display: none;
 }
 
-.nav-bar > label > .word{
+.word{
     color: whitesmoke;
     font-family: 'Quicksand';
     margin-left: .4rem;
@@ -195,6 +195,20 @@ nav{
 .trigger:checked ~ .hamburger span:first-child{
     transform: rotate(45deg);
     top: 8px;
+}
+
+.open-hamb span:first-child{
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.open-hamb span:last-child{
+    transform: rotate(-45deg);
+    top: -8px;
+}
+
+.open-hamb span:nth-child(2){
+    opacity: 0;
 }
 
 .trigger:checked ~ .hamburger span:last-child{
