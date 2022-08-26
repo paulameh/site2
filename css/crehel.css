@@ -80,8 +80,14 @@ small{
     padding: .6rem;
     border-radius: 12px;
     cursor: pointer;
-    margin-top: .4rem;
+    margin-top: .6rem;
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+#button{
+    display: inline-block;
+    margin-left: 1rem;
+    width:150px;
 }
 
 .button:hover{

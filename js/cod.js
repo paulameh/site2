@@ -10,13 +10,67 @@ function menuBox(){
     mbox.style.backgroundColor="rgb(189, 50, 50)";
     menu[0].setAttribute('class', 'hamburger open-hamb');
     menu[0].setAttribute('id', 'on');
-} else{
-    mbox.style.left="-100vw";
-    mbox.style.backgroundColor="#000000";
-    menu[0].setAttribute('class', 'hamburger');
-    menu[0].setAttribute('id', 'off');
+    } else{
+        mbox.style.left="-100vw";
+        mbox.style.backgroundColor="#000000";
+        menu[0].setAttribute('class', 'hamburger');
+        menu[0].setAttribute('id', 'off');
+    }
 }
 
+document.querySelector('.sub-menu').style.top = '0';
+document.querySelector('.sub-menu').style.zIndex = '-1';
+document.querySelector('.sub-menu').style.left = 'inherit';
+
+let items = document.querySelectorAll('.m_item');
+
+item0 = items[0];
+item1 = items[1];
+item2 = items[2];
+item3 = items[3];
+item4 = items[4];
+item5 = items[5];
+item6 = document.querySelector('.rt');
+item6.setAttribute('id', 'off');
+
+item0.onmouseover = () => {m_item_ov(item0)};
+item1.onmouseover = () => {m_item_ov(item1)};
+item2.onmouseover = () => {m_item_ov(item2)};
+item3.onmouseover = () => {m_item_ov(item3)};
+item4.onmouseover = () => {m_item_ov(item4)};
+item5.onmouseover = () => {m_item_ov(item5)};
+item6.onmouseover = () => {m_item_ov(item6)};
+item6.onclick = () => {SubMenu()};
+
+function m_item_ov(item){
+    item.style.backgroundColor = 'rgb(100, 99, 99)';
+}
+
+function subMenu(){
+    if(item6.getAttributeNode('id').nodeValue == 'off'){
+        let subMenu = document.querySelector('.sub-menu');
+        subMenu.style.top = '255px';
+        subMenu.style.left = '0vw';
+        item6.setAttribute('id', 'on');
+    } else{
+        let subMenu = document.querySelector('.sub-menu');
+        subMenu.style.top = '0';
+        subMenu.style.left = 'inherit';
+        item6.setAttribute('id', 'off');
+    }
+}
+
+item0.onmouseout = () => {m_item_ou(item0)};
+item1.onmouseout = () => {m_item_ou(item1)};
+item2.onmouseout = () => {m_item_ou(item2)};
+item3.onmouseout = () => {m_item_ou(item3)};
+item4.onmouseout = () => {m_item_ou(item4)};
+item5.onmouseout = () => {m_item_ou(item5)};
+item6.onmouseout = () => {m_item_ou(item6)};
+item6.onclick = () => {subMenu()};
+
+function m_item_ou(item){
+    item.style.backgroundColor = 'rgba(189, 50, 49, 1)';
 }
 
 //-----------------------------------------------------------
@@ -41,14 +95,15 @@ document.querySelector('main').appendChild(error_field);
 
 let s_number = 1;
 
-document.body.onload = () => {step(s_number)};
+document.body.onload = () => {step()};
 
-function step(s_number){
-    
+function step(){
+
     field.innerHTML = '';
 
     if(s_number == 1){
         document.querySelector('.text-center').innerHTML = 'Criar conta profissional';
+
         for(i = 0; i < 4; i++){
             let box = document.createElement('div');
             box.setAttribute('class', 'box')
@@ -236,6 +291,31 @@ function step(s_number){
     button.setAttribute('value', 'Enviar');
     field.appendChild(button);
 
+    if(s_number == 3){
+        again0 = document.createElement('button');
+        again0.innerHTML = 'Tentar novamente';
+        again0.setAttribute('class', 'button');
+        again0.setAttribute('id', 'button');
+        again0.style.backgroundColor = 'lightcoral'
+        field.style.display = 'block';
+
+        field.appendChild(again0);
+
+        again0 = document.querySelector('#button');
+
+        again0.onmouseover = () => {
+            again0.style.backgroundColor = 'red';
+        }
+
+        again0.onmouseout = () => {
+            again0.style.backgroundColor = 'lightcoral';
+        }
+        again0.addEventListener('click', (e) => {
+            s_number = 1;
+            step(s_number);
+        });
+    }
+
 }
 
 document.querySelector('#form').addEventListener('submit', (e) => {verify(e)});
@@ -262,13 +342,19 @@ function verify(e){
     if(s_number == 3){
         document.querySelector('.text-center').innerHTML = '⭐ ⭐ ⭐';
         field.innerHTML = '';
-        document.querySelector('main').removeChild(document.querySelector('main').lastChild);
+        let gif = document.createElement('iframe');
+        gif.setAttribute('src', 'https://giphy.com/embed/g9582DNuQppxC');
+        gif.setAttribute('height', '200px');
+        gif.setAttribute('width', '350px');
+        document.querySelector('main').lastChild.appendChild(gif);
+        document.querySelector('main').lastChild.style.border = '0';
         field.appendChild(document.createTextNode('Fim das operações 🎉'));
         field.style.textAlign = 'center';
         field.style.color = 'white';
         field.style.textWeight = 'bold';
         field.style.fontSize = '2rem';
         field.style.fontFamily = 'Raleway';
+        verifier = 1;
     }
 
     if (verifier != 0) {
@@ -276,13 +362,8 @@ function verify(e){
 
     } else{
         e.preventDefault();
-        if (s_number == 1){
-            s_number++;
-            step(s_number);
-        } else if(s_number == 2){
-            s_number++;
-            step(s_number);
-        }
+        s_number++;
+        step(s_number);
     }
 
     function vText(){

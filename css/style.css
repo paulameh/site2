@@ -158,7 +158,7 @@ nav{
     left: -100vw;
     display: flex;
     flex-flow: column nowrap;
-    transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out, top .3s ease-in-out;
 }
 
 .sub-menu > a{
@@ -169,6 +169,10 @@ nav{
     text-align: center;
     padding: .6rem .3rem;
     border-bottom: 1px solid whitesmoke;
+}
+
+.rt{
+    cursor: pointer;
 }
 
 .sub-menu > a:hover{
@@ -316,9 +320,6 @@ h6{
         display: none;
     }
 
-    .sub-menu{
-        transition: none;
-    }
 
     .trigger:checked ~ .mbox > .rt > .sub-menu{
         left: 0;
